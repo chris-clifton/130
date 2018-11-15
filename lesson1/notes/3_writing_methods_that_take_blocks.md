@@ -1,4 +1,4 @@
-Writing Methods that take Blocks
+# H1 Writing Methods that take Blocks
 
 - Every method you write in ruby takes blocks
 - In Ruby, every method can take an optional block as a implicit paramater- even though explicit parameters might give ArugmentError
