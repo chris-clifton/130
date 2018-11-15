@@ -55,12 +55,12 @@ Methods with an Explicit Block Parameter
 - passing a block to a method explicitly
 - comestimes you want a method to explicitly require a block; you do that by defining a parameter and prefixing it with an ampersands & in method definition
 - example:   
-        ```ruby
+```ruby
         def test(&block)
           puts "What's block? #{block}"
         end
         #=> #<Proc:ox004398482-4985dk(irb):59>
-        ```
+```
 - the `&block` is a special parameter that converts the block argument toa simple `Proc` object
 - allows us to pass the block to another method
 - invoke the `Proc` object at any time with a call to `Proc#call`
