@@ -9,7 +9,7 @@
   Two Rules
   1. The number of arguments at method invocation needs to match the method definition, regardless of whether or not we are passing in a block
   2. The Yield keyword executes the block
-- Must give a block if you use keyword `yield` or you will get a LocalJumpError: no block given
+- Must give a block if you use keyword `yield` or you will get a `LocalJumpError: no block given`
 - In order to allow calling the method with or without a block, we must wrap the call to `yield` in a conditional
   - only call `yield` when a block is passed to method and don't call `yield` when there's no block
   - we achieve this with `Kernel#block_given?`

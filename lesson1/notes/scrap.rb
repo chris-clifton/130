@@ -1,20 +1,13 @@
-def echo_with_yield(str)
-  puts str
-  #yield
-  #str
-  
+ARRAY = [1, 2, 3]
+
+def abc
+  a = 3
 end
 
-p echo_with_yield("hello") 
-
-
-def time_it
-  time_before = Time.now
-  sleep(5)
-  time_after = Time.now
-  
-  puts "It took #{time_after - time_before} seconds."
+def xyz(collection)
+  collection.map { |x| yield x }
 end
 
-
-time_it
+xyz(ARRAY) do
+  # block body
+end
