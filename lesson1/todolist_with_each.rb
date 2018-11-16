@@ -36,7 +36,7 @@ end
 # on a Todolist object, including iteration and selection
 
 class TodoList
-  attr_accessor :title, :todos
+  attr_accessor :title
 
   def initialize(title)
     @title = title
@@ -49,10 +49,10 @@ class TodoList
 
   def add(todo_object)
     validate_todo_object(todo_object)
-    if todos.include?(todo_object)
+    if @todos.include?(todo_object)
       puts "\"#{todo_object.title}\" is already on this list."
     else
-      todos << todo_object
+      @todos << todo_object
     end    
   end
   
@@ -60,27 +60,27 @@ class TodoList
 
   def remove(todo_object)
     validate_todo_object(todo_object)
-    if todos.include?(todo_object)
-      todos.delete(todo_object)
+    if @todos.include?(todo_object)
+      @todos.delete(todo_object)
     else
       puts "\"#{todo_object.title}\" is not on this list."
     end
   end
 
   def size
-    todos.length
+    @todos.length
   end
 
   def first
-    todos.first
+    @todos.first
   end
 
   def last
-    todos.last
+    @todos.last
   end
 
   def item_at(location)
-    todos.fetch(location)
+    @todos.fetch(location)
   end
 
   def mark_done_at(location)
@@ -92,11 +92,11 @@ class TodoList
   end
 
   def shift
-    todos.shift
+    @todos.shift
   end
 
   def pop
-    todos.pop
+    @todos.pop
   end
 
   def remove_at(location)
@@ -104,18 +104,25 @@ class TodoList
   end
 
   def done?
-    todos.all? { |todo| todo.done? }
+    @todos.all? { |todo| todo.done? }
   end
 
   def to_s
     text = "# ---- Today's Todos ---- #\n"
-    text << todos.map(&:to_s).join("\n")
+    text << @todos.map(&:to_s).join("\n")
     text
   end
 
   def to_a
-    todos
+    @todos
   end
+
+  def each(list)
+    @todos.each do |todo| 
+      yield(todo)
+    end
+  end
+
 end
 
 # given test list and todos
@@ -131,22 +138,3 @@ list.add(todo2)
 list << todo3
 
 #puts list
-
-# p list.size
-# p list.first
-# p list.last
-# p list.item_at
-# p list.item_at(1)
-# p list.item_at(100)
-# p list.mark_done_at
-# p list.mark_done_at(1)
-# p list.mark_done_at(100)
-# p list.shift
-# p list.pop
-# p list.remove_at
-# p list.remove_at(1)
-# p list.remove_at(100)
-
-# p list.to_a
-
-
