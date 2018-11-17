@@ -1,0 +1,2 @@
+# Code Coverage
+When writing tests, we want to know how much of program code is actually tested by a test suite.  Even though we tested every public method in the TodoList, it doesn't mean all edge cases have been considered, or even that our program is working correctly- it only means we have some tests in place for every method.
