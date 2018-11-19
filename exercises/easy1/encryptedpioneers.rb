@@ -20,8 +20,8 @@ end
 
 def decipher_character(encrypted_char)
   case encrypted_char
-  when 'a'..'m', 'A'..'M' then (encrypted_char.ord + 13).chr
-  when 'n'..'z', 'N'..'Z' then (encrypted_char.ord - 13).chr
+  when /[a-m]/i then (encrypted_char.ord + 13).chr
+  when /[m-z]/i then (encrypted_char.ord - 13).chr
   else                          encrypted_char
   end
 end
