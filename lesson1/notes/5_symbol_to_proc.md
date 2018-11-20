@@ -35,3 +35,6 @@ Consider the following code:
   1. Ruby checks whether the object after `&` is a `Proc`.  If it is, it uses the object as-is.  Otherwise, it tries to call `#to_proc` on the object, which should return a `Proc` object.  An error will occur if this fails.
   2.  If all is well, the & turns the `Proc` into a block
 - Ruby then tries to turn `:to_s` into a block
+
+# Symbol to Block
+A lone & applied to an object causes ruby to try to convert the object to a block. If that object is a proc, the conversion happens automagically, just as shown above. If the object is not a proc, then & attempts to call the #to_proc method on the object first. Used with symbols, e.g., &:to_s, Ruby creates a proc that calls the #to_s method on a passed object, and then converts that proc to a block. This is the "symbol to proc" operation (though perhaps it should be called "symbol to block").
