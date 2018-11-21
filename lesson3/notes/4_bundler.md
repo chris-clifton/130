@@ -12,6 +12,12 @@ gem install bundler
 - After you create `Gemfile`, the `bundle install` command scans it, downloads, and installs all the dependencies listed, and produces a `Gemfile.lock` file.
 - `Gemfile.lock` shows all dependencies for your program; this includes the Gems listed in `Gemfile`, as well as the Gems they depend on (which may not be explicitly listed in `Gemfile`)
 
+## Gemfiles needs four main pieces of information:
+- Where should bundler look for Rubygems it needs to install?
+- Do you ned a `.gemspece` file?
+- What version of Ruby does your program need? (Recommended, not required)
+- What Rubygems does your program use?
+
 ## Running Apps with Bundler
 - once bundler creates your `Gemfile.lock` add:
 ```ruby
